@@ -64,7 +64,7 @@ async function sendWebhookRequest(message1, message2) {
         hideAllSections();
         
         // 웹훅 요청 URL 구성
-        const url = `${WEBHOOK_URL}?message1=${encodeURIComponent(message1)}&message2=${encodeURIComponent(message2)}&key=1234`;
+        const url = `${WEBHOOK_URL}?message1=${encodeURIComponent(message1)}&message2=${encodeURIComponent(message2)}`;
         
         console.log('웹훅 요청 전송:', url);
         
