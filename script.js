@@ -102,7 +102,7 @@ async function sendWebhookRequest(message1, message2) {
 function startPolling() {
     pollingStartTime = Date.now();
     
-    // 5초 후에 첫 번째 폴링 시작 (즉시 확인)
+    // 1분 후에 첫 번째 폴링 시작
     setTimeout(() => {
         if (currentRequestKey) {
             pollStatus();
@@ -115,7 +115,7 @@ function startPolling() {
                 }
             }, 15000);
         }
-    }, 5000); // 5초 후 시작
+    }, 60000); // 60초 후 시작
     
     // 진행률 표시 업데이트
     updateProgress();
