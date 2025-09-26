@@ -1,15 +1,77 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>replit</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이미지 생성 요청</title>
   <link href="style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
-  Hello world
+  <div class="container">
+    <header>
+      <h1>이미지 생성 요청</h1>
+      <p>두 개의 메시지를 입력하여 이미지를 생성해보세요</p>
+    </header>
+
+    <main>
+      <form class="request-form" id="requestForm">
+        <div class="input-group">
+          <label for="message1">첫 번째 메시지</label>
+          <input type="text" id="message1" placeholder="예: 그동안의 헌신에 감사드립니다" required>
+        </div>
+
+        <div class="input-group">
+          <label for="message2">두 번째 메시지</label>
+          <input type="text" id="message2" placeholder="예: 출근길 대신 꽃길만 걸으세요" required>
+        </div>
+
+        <button type="submit" id="sendButton" class="send-button">
+          <span class="button-text">이미지 생성 요청</span>
+          <div class="spinner" style="display: none;"></div>
+        </button>
+      </form>
+
+      <div class="status-section" id="statusSection" style="display: none;">
+        <div class="status-card">
+          <h3>처리 상태</h3>
+          <div class="status-indicator">
+            <div class="status-dot" id="statusDot"></div>
+            <span id="statusText">요청 처리 중...</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+          <p class="status-description" id="statusDescription">
+            이미지 생성을 위해 요청을 처리하고 있습니다. 잠시만 기다려주세요.
+          </p>
+        </div>
+      </div>
+
+      <div class="result-section" id="resultSection" style="display: none;">
+        <div class="result-card">
+          <h3>생성된 이미지</h3>
+          <div class="image-container">
+            <img id="resultImage" alt="생성된 이미지" style="display: none;">
+            <div class="image-placeholder" id="imagePlaceholder">
+              이미지를 불러오는 중...
+            </div>
+          </div>
+          <button class="new-request-button" id="newRequestButton">새 요청하기</button>
+        </div>
+      </div>
+
+      <div class="error-section" id="errorSection" style="display: none;">
+        <div class="error-card">
+          <h3>오류 발생</h3>
+          <p id="errorMessage"></p>
+          <button class="retry-button" id="retryButton">다시 시도</button>
+        </div>
+      </div>
+    </main>
+  </div>
+
   <script src="script.js"></script>
 </body>
 
